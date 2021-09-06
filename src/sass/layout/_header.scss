@@ -1,0 +1,42 @@
+.header {
+  // padding: 2rem 4rem;
+  display: grid;
+  @include default-grid;
+
+  align-items: center;
+
+  // logo 
+  &__logo-img {
+    width: 100%;
+    font-size: 2rem;
+    color: $color-gray-1;
+  }
+
+  // Search Input 
+  &__search-input {
+    width: 80%;
+    padding: 1rem 2rem;
+    border: 1px solid gray ;
+    border-radius: 2rem ;
+  }
+
+  // User 
+  &__user {
+    background-color: grey;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem;
+
+    // user name 
+    &-name {
+      font-size: 1.6rem;
+    }
+
+    // user image 
+    &-img {
+      width: 5rem;
+      height: 5rem;
+    }
+  }
+}

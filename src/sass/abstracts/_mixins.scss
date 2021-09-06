@@ -1,0 +1,9 @@
+@mixin default-pad {
+  padding: 2rem 4rem;
+}
+
+@mixin default-grid {
+  display: grid;
+  grid-template-columns: 
+  [nav-start full-start] 28rem [nav-end app-start] minmax(min-content, 1fr) [app-end side-start] 28rem [side-end]
+}
