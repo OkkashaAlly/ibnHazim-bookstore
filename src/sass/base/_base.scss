@@ -3,12 +3,16 @@
 *::before {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html {
   font-size: 10px; //1rem = 10px
+  font-family: "Robot", sans-serif;
 }
 
 body {
   background-color: $color-bg;
+  max-width: 192rem;
+  margin: 0 auto;
 }

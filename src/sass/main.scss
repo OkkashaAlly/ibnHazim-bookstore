@@ -1,15 +1,16 @@
 // ABSTRACTS
-@import 'abstracts/variables';
-@import 'abstracts/mixins';
+@import "abstracts/variables";
+@import "abstracts/mixins";
 
 // PAGES
 @import "pages/home.scss";
 
-// LAYOUT 
+// LAYOUT
 @import "layout/header";
 
-// COMPONENTS 
+// COMPONENTS
 @import "components/book";
+@import "components/heading";
 
 // BASE
 @import "base/base";

@@ -1,56 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="src/sass/main.scss">
-  <title>Ibn Hazim - Bookstore</title>
-</head>
-<body id="home">
-  <!-- ============================ -->
-  <!-- ########## HEADER ##########  -->
-  <!-- ============================ -->
-  <header class="header">
-    <!-- Logo  -->
-    <div class="header__logo">
-      <h1 class="header__logo-img p-l-m">IBN HAZIM</h1>
-    </div>
-     <!-- Search Input -->
-    <div class="header__search">
-      <input type="text" class="header__search-input" placeholder="Search for a book here..">
-    </div>
-    <!-- User -->
-    <div class="header__user">
-      <!-- user image -->
-      <img src="src/img/user_img.png" alt="user img" class="header__user-img p-r-s">
-      <h5 class="header__user-name">Okkasha Ally</h5>
-    </div>
-  </header>
-  
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/sass/main.scss" />
+    <title>Ibn Hazim - Bookstore</title>
+  </head>
+  <body id="home">
+    <!-- ============================ -->
+    <!-- ########## HEADER ##########  -->
+    <!-- ============================ -->
+    <header class="header">
+      <!-- Logo  -->
+      <div class="header__logo">
+        <h1 class="header__logo-img p-l-m">IBN HAZIM</h1>
+      </div>
+      <!-- Search Input -->
+      <div class="header__search">
+        <input
+          type="text"
+          class="header__search-input"
+          placeholder="Search for a book here.."
+        />
+      </div>
+      <!-- User -->
+      <div class="header__user">
+        <!-- user image -->
+        <img
+          src="src/img/user_img.png"
+          alt="user img"
+          class="header__user-img p-r-s"
+        />
+        <h5 class="header__user-name">Okkasha Ally</h5>
+      </div>
+    </header>
+
     <!-- ================================= -->
     <!-- ########## NAVIGATION ##########  -->
     <!-- ================================= -->
-    <nav class="navigation">
-      Navigation
+    <nav class="navigation p-s">
+      <div class="browse nav">
+        <h3 class="heading heading__3">browse</h3>
+        <ul class="browse__categories">
+          <li><span class="icon"></span>Top Bookstore</li>
+          <li><span class="icon"></span>Discover</li>
+          <li><span class="icon"></span>Categories</li>
+        </ul>
+      </div>
     </nav>
     <!-- ================================= -->
     <!-- ########## APPLICATION ##########  -->
     <!-- ================================= -->
-    <section class="app">
-      Application
-    </section>
+    <section class="app p-s">Application</section>
     <!-- ================================= -->
     <!-- ########## SIDE BAR ##########  -->
     <!-- ================================= -->
-    <aside class="side-bar">
-      Side bar
-    </aside>
-  <!-- ============================ -->
-  <!-- ########## FOOTER ##########  -->
-  <!-- ============================ -->
-  <footer class="footer">
-    <P>Footer</P>
-  </footer>
-</body>
+    <aside class="side-bar p-s">Side bar</aside>
+    <!-- ============================ -->
+    <!-- ########## FOOTER ##########  -->
+    <!-- ============================ -->
+    <footer class="footer p-s">
+      <p>Footer</p>
+    </footer>
+  </body>
 </html>

@@ -1,17 +1,17 @@
 #home {
- @include default-grid;
+  @include default-grid;
   // grid-template-rows: repeat(3, min-content);
 }
 
-// HEADER 
+// HEADER
 .header {
   background-color: $color-white;
   grid-column: full-start/full-end;
 }
-  
+
 // Navigation
 .navigation {
-  background-color: $color-red;
+  // background-color: $color-red;
   grid-column: nav-start/nav-end;
 }
 
@@ -21,14 +21,13 @@
   grid-column: app-start/app-end;
 }
 
-// Side bar 
+// Side bar
 .side-bar {
-background-color: $color-blue;
-grid-column: side-start/side-end;
-
+  background-color: $color-blue;
+  grid-column: side-start/side-end;
 }
 
-// FOOTER 
+// FOOTER
 .footer {
   background-color: $color-green;
   grid-column: full-start/full-end;
