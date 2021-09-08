@@ -1,0 +1,13 @@
+.footer {
+  display: flex;
+  justify-content: center;
+
+  &__txt {
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+    font-weight: 700;
+    color: $color-tertiary;
+    text-transform: capitalize;
+  }
+}

@@ -11,24 +11,30 @@
 
 // Navigation
 .navigation {
-  // background-color: $color-red;
   grid-column: nav-start/nav-end;
 }
 
 // Application
 .app {
-  background-color: $color-yellow;
   grid-column: app-start/app-end;
+  border: $border-1;
+  border-radius: $border-radius-5;
+  // width: 80%;
+
+  .recently__books {
+    display: grid;
+    grid-template-columns: repeat(5, min-content);
+    grid-template-columns: repeat(auto-fit, 12rem);
+    grid-gap: 1.5rem;
+  }
 }
 
 // Side bar
 .side-bar {
-  background-color: $color-blue;
   grid-column: side-start/side-end;
 }
 
 // FOOTER
 .footer {
-  background-color: $color-green;
   grid-column: full-start/full-end;
 }

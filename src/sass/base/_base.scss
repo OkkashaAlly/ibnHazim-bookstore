@@ -16,3 +16,14 @@ body {
   max-width: 192rem;
   margin: 0 auto;
 }
+
+li {
+  list-style: none;
+}
+
+.icon {
+  height: 2rem;
+  width: 1.5rem;
+  margin-right: 0.8rem;
+  fill: $color-gray-2;
+}

@@ -1,11 +1,20 @@
-// COLORS 
-$color-bg: #EDEDED;
-$color-primary: #C4C4C4;
+// COLORS
+$color-bg: #ededed;
+$color-primary: #c4c4c4;
+$color-tertiary: #b4b4b4;
 
-$color-gray-1: #4F4F4F;
+$color-gray-1: #4f4f4f;
+$color-gray-2: #696969;
+$color-gray-3: #e0e0e0;
 
 $color-white: white;
 $color-red: red;
 $color-green: green;
 $color-yellow: yellow;
 $color-blue: blue;
+
+// Border
+$border-1: 1px solid $color-primary;
+
+// Border Radius
+$border-radius-5: 5px;

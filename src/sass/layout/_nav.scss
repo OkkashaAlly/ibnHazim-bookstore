@@ -1,0 +1,43 @@
+.nav {
+  width: 80%;
+
+  &__list {
+    margin-top: 1.5rem;
+
+    &-item {
+      margin: 0.5rem 0;
+      padding: 0.5rem 1rem;
+      border-radius: $border-radius-5;
+
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  // Browse
+  &__browse {
+    border-bottom: $border-1;
+    padding-bottom: 4rem;
+    margin-bottom: 4rem;
+  }
+
+  //
+  &__books,
+  &__browse {
+    li:hover {
+      background-color: $color-primary;
+    }
+  }
+
+  // Site map
+  &__sitemap {
+    li {
+      padding: 0.5rem 0;
+
+      h4:hover {
+        color: lighten($color-gray-2, $amount: 20%);
+      }
+    }
+  }
+}

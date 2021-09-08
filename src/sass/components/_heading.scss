@@ -1,9 +1,26 @@
 .heading {
   text-transform: uppercase;
+  color: $color-tertiary;
+  // font-size: 2rem;
 
+  // H2
+  &__2 {
+    font-size: 1.8rem;
+    text-transform: capitalize;
+    font-weight: normal;
+  }
+
+  // H3
   &__3 {
     font-weight: bold;
-    // font-size: 1.17rem;
-    color: #b4b4b4;
+    font-size: 1.6rem;
+  }
+
+  // H4
+  &__4 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: $color-gray-2;
+    text-transform: capitalize;
   }
 }
