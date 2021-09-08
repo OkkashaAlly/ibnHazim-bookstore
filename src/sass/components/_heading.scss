@@ -1,7 +1,13 @@
 .heading {
   text-transform: uppercase;
   color: $color-tertiary;
-  // font-size: 2rem;
+
+  // H1
+  &__1 {
+    color: $color-dark;
+    font-size: 4rem;
+    text-transform: capitalize;
+  }
 
   // H2
   &__2 {

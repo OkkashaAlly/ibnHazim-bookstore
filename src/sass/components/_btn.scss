@@ -1,0 +1,18 @@
+.btn {
+  border: none;
+  cursor: pointer;
+
+  &__close {
+    height: 3rem !important;
+    width: 3rem !important;
+    transform: rotate(45deg);
+  }
+
+  &__download {
+    background-color: $color-primary;
+    padding: 1.5rem 4rem;
+    color: $color-dark;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}

@@ -1,0 +1,64 @@
+.preview__book {
+  // Top
+  &-top,
+  &-mid {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-info {
+    font-size: 1.4rem;
+    text-transform: capitalize;
+    font-weight: bold;
+    color: $color-dark;
+
+    &.author {
+      margin: 0.5rem 0 0 2px;
+    }
+
+    &.prologue {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &-mid {
+    justify-content: start;
+  }
+  // book image
+  &-img {
+    display: inline-block;
+    width: 140px;
+    height: 170px;
+    background-color: $color-primary;
+    border-radius: $border-radius-5;
+  }
+
+  &-right {
+    margin-top: 1rem;
+  }
+
+  &-right > *:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  // Bottom
+  &-bottom > *:not(:first-child) {
+    margin-bottom: 1.5rem;
+  }
+
+  &-button {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.light {
+  color: lighten($color-gray-2, $amount: 10%);
+  letter-spacing: 1px;
+}
+.paragraph {
+  font-weight: normal;
+  font-size: 1.4rem;
+  width: 90%;
+  line-height: 1.4;
+}

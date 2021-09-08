@@ -1,5 +1,7 @@
 #home {
   @include default-grid;
+  overflow-x: hidden;
+
   // grid-template-rows: repeat(3, min-content);
 }
 
@@ -16,6 +18,7 @@
 
 // Application
 .app {
+  // position: relative;
   grid-column: app-start/app-end;
   border: $border-1;
   border-radius: $border-radius-5;
@@ -37,4 +40,15 @@
 // FOOTER
 .footer {
   grid-column: full-start/full-end;
+}
+
+// BUY or DOWNLOAD
+.buy {
+  width: 50rem;
+  background-color: white;
+  position: absolute;
+  top: 6rem;
+  right: 0;
+  transform: translateX(50rem);
+  transition: transform 0.3s ease;
 }
