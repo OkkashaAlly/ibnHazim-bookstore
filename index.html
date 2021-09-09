@@ -21,13 +21,22 @@
         <h1 class="header__logo-img p-l-m">IBN HAZIM</h1>
       </div>
       <!-- Search Input -->
-      <div class="header__search">
-        <input
-          type="text"
-          class="header__search-input"
-          placeholder="Search for a book here.."
-        />
-      </div>
+      <form class="header__search">
+        <div class="wraper">
+          <input
+            type="text"
+            class="header__search-input"
+            placeholder="Search for a book here.."
+          />
+          <button class="btn btn__search">
+            <svg class="header__search-icon icon">
+              <use
+                xlink:href="./src/img/sprite.svg#icon-magnifying-glass"
+              ></use>
+            </svg>
+          </button>
+        </div>
+      </form>
       <!-- User -->
       <div class="header__user">
         <!-- user image -->
@@ -102,182 +111,17 @@
         <h2 class="heading heading__2">recently added</h2>
         <!-- Recently Books List  -->
         <div class="recently__books m-t-s">
+          
           <!-- Book component -->
           <div class="book">
-            <!-- book image  -->
-            <!-- <img src="#" alt="book title" class="book__img" /> -->
             <span class="book__img"></span>
             <div class="book__info">
-              <!-- book title  -->
               <h4 class="heading heading__4 book__title">steve jobs</h4>
-              <!-- book author -->
               <h5 class="heading heading__5 book__author">walter issaacton</h5>
             </div>
           </div>
-          <div class="book">
-            <!-- book image  -->
-            <!-- <img src="#" alt="book title" class="book__img" /> -->
-            <span class="book__img"></span>
-            <div class="book__info">
-              <!-- book title  -->
-              <h4 class="heading heading__4 book__title">steve jobs</h4>
-              <!-- book author -->
-              <h5 class="heading heading__5 book__author">walter issaacton</h5>
-            </div>
-          </div>
-          <div class="book">
-            <!-- book image  -->
-            <!-- <img src="#" alt="book title" class="book__img" /> -->
-            <span class="book__img"></span>
-            <div class="book__info">
-              <!-- book title  -->
-              <h4 class="heading heading__4 book__title">steve jobs</h4>
-              <!-- book author -->
-              <h5 class="heading heading__5 book__author">walter issaacton</h5>
-            </div>
-          </div>
-          <div class="book">
-            <!-- book image  -->
-            <!-- <img src="#" alt="book title" class="book__img" /> -->
-            <span class="book__img"></span>
-            <div class="book__info">
-              <!-- book title  -->
-              <h4 class="heading heading__4 book__title">steve jobs</h4>
-              <!-- book author -->
-              <h5 class="heading heading__5 book__author">walter issaacton</h5>
-            </div>
-          </div>
-          <div class="book">
-            <!-- book image  -->
-            <!-- <img src="#" alt="book title" class="book__img" /> -->
-            <span class="book__img"></span>
-            <div class="book__info">
-              <!-- book title  -->
-              <h4 class="heading heading__4 book__title">steve jobs</h4>
-              <!-- book author -->
-              <h5 class="heading heading__5 book__author">walter issaacton</h5>
-            </div>
-          </div>
+          
         </div>
-      </div>
-      <!-- Recently Added  -->
-      <div class="recently">
-        <h2 class="heading heading__2">recommended for you</h2>
-        <!-- Recently Books List  -->
-        <div class="recently__books m-t-s">
-          <!-- Book component -->
-          <div class="book">
-            <!-- book image  -->
-            <!-- <img src="#" alt="book title" class="book__img" /> -->
-            <span class="book__img"></span>
-            <div class="book__info">
-              <!-- book title  -->
-              <h4 class="heading heading__4 book__title">The Hill We Climb</h4>
-              <!-- book author -->
-              <h5 class="heading heading__5 book__author">Amanda Gorman</h5>
-            </div>
-          </div>
-          <div class="book">
-            <!-- book image  -->
-            <!-- <img src="#" alt="book title" class="book__img" /> -->
-            <span class="book__img"></span>
-            <div class="book__info">
-              <!-- book title  -->
-              <h4 class="heading heading__4 book__title">The Hill We Climb</h4>
-              <!-- book author -->
-              <h5 class="heading heading__5 book__author">Amanda Gorman</h5>
-            </div>
-          </div>
-          <div class="book">
-            <!-- book image  -->
-            <!-- <img src="#" alt="book title" class="book__img" /> -->
-            <span class="book__img"></span>
-            <div class="book__info">
-              <!-- book title  -->
-              <h4 class="heading heading__4 book__title">The Hill We Climb</h4>
-              <!-- book author -->
-              <h5 class="heading heading__5 book__author">Amanda Gorman</h5>
-            </div>
-          </div>
-          <div class="book">
-            <!-- book image  -->
-            <!-- <img src="#" alt="book title" class="book__img" /> -->
-            <span class="book__img"></span>
-            <div class="book__info">
-              <!-- book title  -->
-              <h4 class="heading heading__4 book__title">The Hill We Climb</h4>
-              <!-- book author -->
-              <h5 class="heading heading__5 book__author">Amanda Gorman</h5>
-            </div>
-          </div>
-          <div class="book">
-            <!-- book image  -->
-            <!-- <img src="#" alt="book title" class="book__img" /> -->
-            <span class="book__img"></span>
-            <div class="book__info">
-              <!-- book title  -->
-              <h4 class="heading heading__4 book__title">The Hill We Climb</h4>
-              <!-- book author -->
-              <h5 class="heading heading__5 book__author">Amanda Gorman</h5>
-            </div>
-          </div>
-          <div class="book">
-            <!-- book image  -->
-            <!-- <img src="#" alt="book title" class="book__img" /> -->
-            <span class="book__img"></span>
-            <div class="book__info">
-              <!-- book title  -->
-              <h4 class="heading heading__4 book__title">The Hill We Climb</h4>
-              <!-- book author -->
-              <h5 class="heading heading__5 book__author">Amanda Gorman</h5>
-            </div>
-          </div>
-          <div class="book">
-            <!-- book image  -->
-            <!-- <img src="#" alt="book title" class="book__img" /> -->
-            <span class="book__img"></span>
-            <div class="book__info">
-              <!-- book title  -->
-              <h4 class="heading heading__4 book__title">The Hill We Climb</h4>
-              <!-- book author -->
-              <h5 class="heading heading__5 book__author">Amanda Gorman</h5>
-            </div>
-          </div>
-          <div class="book">
-            <!-- book image  -->
-            <!-- <img src="#" alt="book title" class="book__img" /> -->
-            <span class="book__img"></span>
-            <div class="book__info">
-              <!-- book title  -->
-              <h4 class="heading heading__4 book__title">The Hill We Climb</h4>
-              <!-- book author -->
-              <h5 class="heading heading__5 book__author">Amanda Gorman</h5>
-            </div>
-          </div>
-          <div class="book">
-            <!-- book image  -->
-            <!-- <img src="#" alt="book title" class="book__img" /> -->
-            <span class="book__img"></span>
-            <div class="book__info">
-              <!-- book title  -->
-              <h4 class="heading heading__4 book__title">The Hill We Climb</h4>
-              <!-- book author -->
-              <h5 class="heading heading__5 book__author">Amanda Gorman</h5>
-            </div>
-          </div>
-          <div class="book">
-            <!-- book image  -->
-            <!-- <img src="#" alt="book title" class="book__img" /> -->
-            <span class="book__img"></span>
-            <div class="book__info">
-              <!-- book title  -->
-              <h4 class="heading heading__4 book__title">The Hill We Climb</h4>
-              <!-- book author -->
-              <h5 class="heading heading__5 book__author">Amanda Gorman</h5>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
     <!-- ================================= -->
     <!-- ########## SIDE BAR ##########  -->
@@ -311,27 +155,22 @@
 
     <!-- ==================================== -->
     <!-- ########## BUY / DOWNLOAD ##########  -->
-    <!-- ==================================== -->
     <section class="buy">
+      <!-- ==================================== 
       <div class="preview__book p-m">
-        <!-- Top  -->
         <div class="preview__book-top">
-          <!-- Title & author  -->
           <div class="preview__heading">
             <h1 class="heading heading__1 preview__book-title">steve jobs</h1>
             <h4 class="preview__book-info author">
               author: <span class="light">walter issaacton </span>
             </h4>
           </div>
-          <!-- close btn  -->
           <svg class="btn btn__close icon">
             <use xlink:href="./src/img/sprite.svg#icon-plus"></use>
           </svg>
         </div>
-        <!-- Mid -->
         <div class="preview__book-mid m-t-m">
           <div class="preview__book-left m-r-s">
-            <!-- img.preview__book-image  -->
             <span class="preview__book-img"></span>
           </div>
           <ul class="preview__book-right">
@@ -355,7 +194,6 @@
             </li>
           </ul>
         </div>
-        <!-- Bottom -->
         <div class="preview__book-bottom m-t-m">
           <h5 class="preview__book-info prologue">Prologue:</h5>
           <p class="paragraph light">
@@ -371,12 +209,12 @@
             aliquip.
           </p>
         </div>
-        <!-- Download / Buy button  -->
         <div class="preview__book-button m-t-b m-b-m">
           <button class="btn btn__download">Download / Buy</button>
         </div>
-      </div>
+      </div> -->
     </section>
+    
 
     <script src="./src/js/app.js"></script>
   </body>

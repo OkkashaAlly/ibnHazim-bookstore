@@ -1,6 +1,7 @@
 .btn {
   border: none;
   cursor: pointer;
+  background-color: white;
 
   &__close {
     height: 3rem !important;
@@ -14,5 +15,11 @@
     color: $color-dark;
     font-weight: bold;
     text-transform: uppercase;
+  }
+
+  &__search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
