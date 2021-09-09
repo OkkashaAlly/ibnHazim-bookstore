@@ -2,7 +2,7 @@
   "name": "ibnhazim-bookstore",
   "version": "1.0.0",
   "description": "Front-End app to fetch books data",
-  "main": "index.html",
+  "default": "index.html",
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html --dist-dir ./dist"
