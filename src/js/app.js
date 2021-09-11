@@ -23,39 +23,47 @@ preview.addEventListener("click", closePreview);
 
 ////////////////////////////////////
 // https://api.aniapi.com/v1/anime/11
+// https://www.googleapis.com/books/v1/volumes/zyTCAlFPjgYC
 
 // Load Anime
 async function loadAnime() {
   try {
     // 1) Load Anime API
-    const res = await fetch("https://api.aniapi.com/v1/anime/11");
+    const res = await fetch(
+      "https://www.googleapis.com/books/v1/volumes/zyTCAlFPjgYC"
+    );
     const data = await res.json();
 
     if (!res.ok) {
       throw new Error(`from API ${data.message} (${res.status})`);
     }
 
-    let anime = {
-      id: data.data.id,
-      description:
-        data.data.descriptions.en !== ""
-          ? data.data.descriptions.en
-          : data.data.descriptions.it,
-      title:
-        data.data.titles.en !== "" ? data.data.titles.en : data.data.titles.it,
-      score: data.data.score,
-      imageLink: data.data.cover_image,
-      genres: data.data.genres,
-      seasonYear: data.data.season_year,
-      episodesCout: data.data.episodes_count,
+    let book = {
+      id: data.id,
+      title: data.volumeInfo.title,
+      authors: data.volumeInfo.authors,
+      publisher: data.volumeInfo.publisher,
+      publishedDate: data.volumeInfo.publishedDate,
+      description: data.volumeInfo.description,
+      isbnType: data.volumeInfo.industryIdentifiers[0].type,
+      isbn: data.volumeInfo.industryIdentifiers[0].identifier,
+      pages: data.volumeInfo.pageCount,
+      categories: Array.isArray(data.volumeInfo.categories)
+        ? data.volumeInfo.categories[0]
+        : data.volumeInfo.categories,
+      rate: data.volumeInfo.averageRating,
+      imageLink: data.volumeInfo.imageLinks.thumbnail,
+      language: data.volumeInfo.language,
+      isForSale: data.saleInfo.saleability,
     };
 
+    console.log(Array.isArray([1, 2]));
     // 2) Render anime
     const markup = `
       <div class="preview__book p-m">
         <div class="preview__book-top">
           <div class="preview__heading">
-            <h1 class="heading heading__1 preview__book-title">${anime.title}</h1>
+            <h1 class="heading heading__1 preview__book-title">${book.title}</h1>
           </div>
           <svg class="btn btn__close icon">
             <use xlink:href="./src/img/sprite.svg#icon-plus"></use>
@@ -63,33 +71,33 @@ async function loadAnime() {
         </div>
         <div class="preview__book-mid m-t-m">
           <div class="preview__book-left m-r-s">
-            <img src="${anime.imageLink}" alt="${anime.title}" class="preview__book-img">
+            <img src="${book.imageLink}" alt="${book.title}" class="preview__book-img">
           </div>
           <ul class="preview__book-right">
             <li class="preview__book-info price">
-              price: <span class="light">42,500 </span>
+              price: <span class="light">${book.isForSale}</span>
             </li>
             <li class="preview__book-info category">
-              category: <span class="light">educational </span>
+              category: <span class="light">${book.categories}</span>
             </li>
             <li class="preview__book-info year">
-              year: <span class="light">${anime.seasonYear} </span>
+              year: <span class="light">${book.publishedDate} </span>
             </li>
             <li class="preview__book-info pages">
-              episodes: <span class="light">${anime.episodesCout} </span>
+              pages: <span class="light">${book.pages} </span>
             </li>
             <li class="preview__book-info isbn">
-              ISBN: <span class="light">9876545678987654 </span>
+            ${book.isbnType}: <span class="light">${book.isbn}</span>
             </li>
             <li class="preview__book-info rate">
-              rate: <span class="light">${anime.score}</span>
+              rate: <span class="light">${book.rate}</span>
             </li>
           </ul>
         </div>
         <div class="preview__book-bottom m-t-m">
           <h5 class="preview__book-info prologue">Prologue:</h5>
           <p class="paragraph light">
-          ${anime.description}
+          ${book.description}
           </p>
         </div>
         <div class="preview__book-button m-t-b m-b-m">
@@ -100,7 +108,7 @@ async function loadAnime() {
     `;
 
     preview.insertAdjacentHTML("afterbegin", markup);
-    console.log(anime);
+    // console.log(anime);
   } catch (error) {
     console.log(error);
   }
