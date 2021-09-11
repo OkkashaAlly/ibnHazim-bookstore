@@ -1,9 +1,14 @@
+import icons from "url:../img/sprite.svg";
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+
 console.log("Hellow");
 
 const preview = document.querySelector(".buy");
 const app = document.querySelector(".app");
 const closeBtn = document.querySelector(".btn__close");
 
+/*
 function openPreview(e) {
   if (e.target.closest(".book")) {
     preview.style.transform = "translateX(0)";
@@ -20,17 +25,35 @@ function closePreview(e) {
 
 app.addEventListener("click", openPreview);
 preview.addEventListener("click", closePreview);
-
+*/
 ////////////////////////////////////
 // https://api.aniapi.com/v1/anime/11
 // https://www.googleapis.com/books/v1/volumes/zyTCAlFPjgYC
 
+function renderSpinner(parentElement) {
+  const markup = `
+  <div class="spinner">
+    <svg>
+      <use href="${icons}#icon-loader"></use>
+    </svg>
+  </div>
+  `;
+  parentElement.innerHTML = "";
+  parentElement.insertAdjacentHTML("afterbegin", markup);
+}
+
 // Load Anime
-async function loadAnime() {
+async function loadBook() {
   try {
+    const id = window.location.hash.slice(1);
+
+    console.log(id);
+
+    renderSpinner(preview);
     // 1) Load Anime API
     const res = await fetch(
-      "https://www.googleapis.com/books/v1/volumes/zyTCAlFPjgYC"
+      // "https://www.googleapis.com/books/v1/volumes/zyTCAlFPjgYC"
+      `https://www.googleapis.com/books/v1/volumes/${id}`
     );
     const data = await res.json();
 
@@ -57,7 +80,6 @@ async function loadAnime() {
       isForSale: data.saleInfo.saleability,
     };
 
-    console.log(Array.isArray([1, 2]));
     // 2) Render anime
     const markup = `
       <div class="preview__book p-m">
@@ -66,7 +88,7 @@ async function loadAnime() {
             <h1 class="heading heading__1 preview__book-title">${book.title}</h1>
           </div>
           <svg class="btn btn__close icon">
-            <use xlink:href="./src/img/sprite.svg#icon-plus"></use>
+            <use xlink:href="${icons}#icon-plus"></use>
           </svg>
         </div>
         <div class="preview__book-mid m-t-m">
@@ -107,11 +129,11 @@ async function loadAnime() {
 
     `;
 
+    preview.innerHTML = "";
     preview.insertAdjacentHTML("afterbegin", markup);
-    // console.log(anime);
   } catch (error) {
     console.log(error);
   }
 }
 
-loadAnime();
+window.addEventListener("hashchange", loadBook);
