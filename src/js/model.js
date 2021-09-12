@@ -51,6 +51,7 @@ export async function loadSearchResults(query) {
         authors: book.volumeInfo.authors,
         rate: book.volumeInfo.averageRating,
         imageLink: book.volumeInfo.imageLinks.thumbnail,
+        id: book.id,
       };
     });
   } catch (error) {
