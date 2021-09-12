@@ -8,7 +8,6 @@ class ResultsView extends View {
   }
 
   _generateMarkupResult(result) {
-    console.log(result);
     return `
       <a  href="#${result.id}" class="book">
         <img src="${result.imageLink}" alt="${result.title}" class="book__img">

@@ -12,7 +12,6 @@ export const state = {
 export async function loadBook(id) {
   try {
     const data = await getJSON(`${API_URL}${id}`);
-
     state.book = {
       id: data.id,
       title: data.volumeInfo.title,
@@ -20,8 +19,12 @@ export async function loadBook(id) {
       publisher: data.volumeInfo.publisher,
       publishedDate: data.volumeInfo.publishedDate,
       description: data.volumeInfo.description,
-      isbnType: data.volumeInfo.industryIdentifiers[0].type,
-      isbn: data.volumeInfo.industryIdentifiers[0].identifier,
+      isbnType: data.volumeInfo.industryIdentifiers
+        ? data.volumeInfo.industryIdentifiers[0].type
+        : "isbn",
+      isbn: data.volumeInfo.industryIdentifiers
+        ? data.volumeInfo.industryIdentifiers[0].identifier
+        : "undefined",
       pages: data.volumeInfo.pageCount,
       categories: Array.isArray(data.volumeInfo.categories)
         ? data.volumeInfo.categories[0]
