@@ -1,38 +1,16 @@
 import icons from "url:../../img/sprite.svg";
+import View from "./View";
 
-class BookView {
+class BookView extends View {
   _parentElement = document.querySelector(".buy");
-  _data;
-
-  render(data) {
-    this._data = data;
-    const markup = this._generateMarkup();
-    this._clear();
-    this._parentElement.insertAdjacentHTML("afterbegin", markup);
-  }
-
-  renderSpinner() {
-    const markup = `
-      <div class="spinner">
-        <svg>
-          <use href="${icons}#icon-loader"></use>
-        </svg>
-      </div>
-      `;
-    this._clear();
-    this._parentElement.insertAdjacentHTML("afterbegin", markup);
-  }
+  _errorMessage = "We could not find your book, please try another one.";
+  _message = "";
 
   addHandlerRender(handler) {
     ["hashchange", "load"].forEach((ev) =>
       window.addEventListener(ev, handler)
     );
   }
-
-  _clear() {
-    this._parentElement.innerHTML = "";
-  }
-
   _generateMarkup() {
     return `
       <div class="preview__book p-m">

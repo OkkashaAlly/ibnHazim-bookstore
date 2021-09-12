@@ -1,5 +1,7 @@
 import * as model from "./model";
 import bookView from "./views/bookView";
+import searchView from "./views/searchView";
+import resultsView from "./views/resultsView";
 
 import "core-js/stable";
 import "regenerator-runtime/runtime";
@@ -35,9 +37,11 @@ preview.addEventListener("click", closePreview);
 // Load Book
 async function controllBook() {
   try {
+    // 0) Get id from URL
     const id = window.location.hash.slice(1);
     if (!id) return;
 
+    // render spinner
     bookView.renderSpinner();
 
     // 1) Load book API
@@ -47,10 +51,30 @@ async function controllBook() {
     // 2) Render anime
     bookView.render(book);
   } catch (error) {
+    bookView.renderError();
+  }
+}
+
+// Load Searched query
+async function controllSearchQuery() {
+  try {
+    // 1) Get query
+    const query = searchView.getQuery();
+    if (!query) return;
+
+    // 2) Load the results
+    await model.loadSearchResults(query);
+
+    // 3) Render the results
+    const results = model.state.search.results;
+    resultsView.renderSpinner();
+    resultsView.render(results);
+  } catch (error) {
     console.log(error);
   }
 }
 
 (function () {
   bookView.addHandlerRender(controllBook);
+  searchView.addHandlerSearch(controllSearchQuery);
 })();

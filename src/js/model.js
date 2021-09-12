@@ -3,6 +3,10 @@ import { getJSON } from "./helpers";
 
 export const state = {
   book: {},
+  search: {
+    query: [],
+    results: [],
+  },
 };
 
 export async function loadBook(id) {
@@ -29,5 +33,28 @@ export async function loadBook(id) {
     };
   } catch (error) {
     console.log(error);
+    throw error;
+  }
+}
+
+// https://www.googleapis.com/books/v1/volumes/?q=flowers+inauthor
+
+export async function loadSearchResults(query) {
+  try {
+    state.search.query.push(query);
+
+    const data = await getJSON(`${API_URL}?q=${query}`);
+
+    state.search.results = data.items.map((book) => {
+      return {
+        title: book.volumeInfo.title,
+        authors: book.volumeInfo.authors,
+        rate: book.volumeInfo.averageRating,
+        imageLink: book.volumeInfo.imageLinks.thumbnail,
+      };
+    });
+  } catch (error) {
+    console.log(error);
+    throw error;
   }
 }
