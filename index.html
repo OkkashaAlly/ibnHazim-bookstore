@@ -107,30 +107,39 @@
     <!-- ================================= -->
     <section class="app m-t-m p-s m-b-s">
       <!-- Recently Added  -->
-      <div class="recently m-b-m">
+      <div class="recently">
         <h2 class="heading heading__2">recently added</h2>
         <!-- Recently Books List  -->
         <div class="recently__books m-t-s">
-          
           <!-- Book component -->
-          <a  href="#p1v6DwAAQBAJ" class="book">
+          <a href="#p1v6DwAAQBAJ" class="book">
             <span class="book__img"></span>
             <div class="book__info">
               <h4 class="heading heading__4 book__title">steve jobs</h4>
               <h5 class="heading heading__5 book__author">walter issaacton</h5>
             </div>
           </a>
-          <a  href="#zyTCAlFPjgYC" class="book">
-            <img src="#" alt="" class="book__img">
+          <a href="#zyTCAlFPjgYC" class="book">
+            <img src="#" alt="" class="book__img" />
             <div class="book__info">
               <h4 class="heading heading__4 book__title">${result.title}</h4>
               <h5 class="heading heading__5 book__author">${result.authors}</h5>
             </div>
           </a>
-          
+
           <a href="#p1v6DwAAQBAJ">Book 1</a><a href="">Book 2</a>
-          
         </div>
+        <div class="pagination m-t-m">
+          <div class="pagination__wrapper">
+            <button class="btn btn__pagination btn__pagination-next">
+              next
+            </button>
+            <button class="btn btn__pagination btn__pagination-prev">
+              prev
+            </button>
+          </div>
+        </div>
+      </div>
     </section>
     <!-- ================================= -->
     <!-- ########## SIDE BAR ##########  -->
@@ -223,8 +232,6 @@
         </div>
       </div> -->
     </section>
-    
-      
 
     <script type="module" src="./src/js/controller.js"></script>
   </body>

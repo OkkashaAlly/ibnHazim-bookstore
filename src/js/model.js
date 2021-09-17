@@ -42,11 +42,11 @@ export async function loadBook(id) {
 
 // https://www.googleapis.com/books/v1/volumes/?q=flowers+inauthor
 
-export async function loadSearchResults(query) {
+export async function loadSearchResults(query, page) {
   try {
     state.search.query.push(query);
 
-    const data = await getJSON(`${API_URL}?q=${query}`);
+    const data = await getJSON(`${API_URL}?q=${query}&startIndex=${page * 10}`);
 
     state.search.results = data.items.map((book) => {
       return {

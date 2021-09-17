@@ -5,6 +5,23 @@ class BookView extends View {
   _parentElement = document.querySelector(".buy");
   _errorMessage = "We could not find your book, please try another one.";
   _message = "";
+  _app = document.querySelector(".app");
+
+  addHandlerPreview() {
+    this._app.addEventListener("click", this.openPreview.bind(this));
+    this._parentElement.addEventListener("click", this.openPreview.bind(this));
+  }
+
+  openPreview(e) {
+    if (e.target.closest(".book")) {
+      this._parentElement.style.transform = "translateX(0)";
+      this._app.removeEventListener("click", this.openPreview);
+    }
+    if (e.target.closest(".btn__close")) {
+      this._parentElement.style.transform = "translateX(50rem)";
+      this._app.addEventListener("click", this.openPreview);
+    }
+  }
 
   addHandlerRender(handler) {
     ["hashchange", "load"].forEach((ev) =>
