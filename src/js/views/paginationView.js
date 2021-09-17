@@ -37,15 +37,16 @@ class PaginationView extends View {
     // b) other pages
     if (currPage > 1) {
       return `
-      <button data-goto="${
-        currPage + 1
-      }" class="btn btn__pagination btn__pagination-next">
-        next
-      </button>
+      
       <button data-goto="${
         currPage - 1
       }" class="btn btn__pagination btn__pagination-prev">
         prev
+      </button>
+      <button data-goto="${
+        currPage + 1
+      }" class="btn btn__pagination btn__pagination-next">
+        next
       </button>
 
       `;
