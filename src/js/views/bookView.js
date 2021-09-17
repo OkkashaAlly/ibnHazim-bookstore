@@ -8,18 +8,18 @@ class BookView extends View {
   _app = document.querySelector(".app");
 
   addHandlerPreview() {
-    this._app.addEventListener("click", this.openPreview.bind(this));
-    this._parentElement.addEventListener("click", this.openPreview.bind(this));
+    this._app.addEventListener("click", this._openPreview.bind(this));
+    this._parentElement.addEventListener("click", this._openPreview.bind(this));
   }
 
-  openPreview(e) {
+  _openPreview(e) {
     if (e.target.closest(".book")) {
       this._parentElement.style.transform = "translateX(0)";
-      this._app.removeEventListener("click", this.openPreview);
+      this._app.removeEventListener("click", this._openPreview);
     }
     if (e.target.closest(".btn__close")) {
       this._parentElement.style.transform = "translateX(50rem)";
-      this._app.addEventListener("click", this.openPreview);
+      this._app.addEventListener("click", this._openPreview);
     }
   }
 

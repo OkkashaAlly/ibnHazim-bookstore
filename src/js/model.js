@@ -1,4 +1,4 @@
-import { API_URL } from "./config";
+import { API_URL, RES_PER_PAGE } from "./config";
 import { getJSON } from "./helpers";
 
 export const state = {
@@ -6,6 +6,8 @@ export const state = {
   search: {
     query: [],
     results: [],
+    resultsPerPage: RES_PER_PAGE,
+    page: 1,
   },
 };
 
@@ -46,7 +48,7 @@ export async function loadSearchResults(query, page) {
   try {
     state.search.query.push(query);
 
-    const data = await getJSON(`${API_URL}?q=${query}&startIndex=${page * 10}`);
+    const data = await getJSON(`${API_URL}?q=${query}&startIndex=${page}`);
 
     state.search.results = data.items.map((book) => {
       return {
@@ -61,4 +63,11 @@ export async function loadSearchResults(query, page) {
     console.log(error);
     throw error;
   }
+}
+
+export function getResultsPage(page) {
+  let start = page * state.search.resultsPerPage;
+
+  state.search.page = page;
+  return start;
 }
