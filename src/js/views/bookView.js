@@ -65,13 +65,19 @@ class BookView extends View {
           </ul>
         </div>
         <div class="preview__book-bottom m-t-m">
-          <h5 class="preview__book-info prologue">Prologue:</h5>
+          
+          <div class="bottom__wraper">
+            <h5 class="preview__book-info prologue">Prologue:</h5>
+            <svg class="btn btn__bookmark btn__bookmark-outlined icon">
+              <use xlink:href="${icons}#icon-bookmark"></use>
+            </svg>
+          </div>
           <p class="paragraph light">
           ${this._data.description}
           </p>
         </div>
         <div class="preview__book-button m-t-b m-b-m">
-          <button class="btn btn__download">Download / Buy</button>
+          <a href="${this._data.previewLink}" target="_blank" class="btn btn__download">Download / Buy</a>
         </div>
       </div>
 

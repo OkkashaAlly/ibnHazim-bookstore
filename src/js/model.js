@@ -14,11 +14,13 @@ export const state = {
 export async function loadBook(id) {
   try {
     const data = await getJSON(`${API_URL}${id}`);
+
     state.book = {
       id: data.id,
       title: data.volumeInfo.title,
       authors: data.volumeInfo.authors,
       publisher: data.volumeInfo.publisher,
+      previewLink: data.volumeInfo.previewLink,
       publishedDate: data.volumeInfo.publishedDate,
       description: data.volumeInfo.description,
       isbnType: data.volumeInfo.industryIdentifiers

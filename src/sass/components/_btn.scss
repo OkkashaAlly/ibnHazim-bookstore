@@ -2,6 +2,7 @@
   border: none;
   cursor: pointer;
   background-color: white;
+  transition: 0.1s ease;
 
   &:hover {
     transform: scale(1.1);
@@ -14,6 +15,11 @@
     height: 4rem !important;
     width: 4rem !important;
     transform: rotate(45deg);
+
+    &:hover {
+      transform: rotate(45deg) scale(1.3);
+      fill: red;
+    }
   }
 
   &__download {
@@ -35,5 +41,11 @@
     padding: 0.5rem;
     border-radius: $border-radius-5;
     border: $border-1;
+  }
+
+  &__bookmark {
+    width: 4rem !important;
+    height: 4rem !important;
+    margin-right: 0.5rem;
   }
 }

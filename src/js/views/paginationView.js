@@ -22,7 +22,6 @@ class PaginationView extends View {
   }
 
   _generateMarkup() {
-    console.log(this._data);
     let currPage = this._data.page;
     // a) First Page
     if (currPage === 1) {
