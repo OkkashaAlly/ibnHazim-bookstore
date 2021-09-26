@@ -48,6 +48,9 @@ export default class View {
         </svg>
       </div>
       <p>${message}</p>
+      <svg class="btn btn__close icon">
+        <use xlink:href="${icons}#icon-plus"></use>
+      </svg>
     </div>
     `;
     this._clear();

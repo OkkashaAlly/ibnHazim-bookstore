@@ -23,7 +23,7 @@ export async function loadBook(id) {
       publisher: data.volumeInfo.publisher,
       previewLink: data.volumeInfo.previewLink,
       publishedDate: data.volumeInfo.publishedDate,
-      description: data.volumeInfo.description.replaceAll("<p>", " "),
+      description: data.volumeInfo.description?.replaceAll("<p>", " "),
       isbnType: data.volumeInfo.industryIdentifiers
         ? data.volumeInfo.industryIdentifiers[0].type
         : "isbn",
