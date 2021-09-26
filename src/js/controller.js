@@ -7,8 +7,6 @@ import bookmarkView from "./views/bookmarkView";
 import "core-js/stable";
 import "regenerator-runtime/runtime";
 
-console.log("Hellow");
-
 ////////////////////////////////////
 // https://api.aniapi.com/v1/anime/11
 // https://www.googleapis.com/books/v1/volumes/zyTCAlFPjgYC
@@ -44,7 +42,6 @@ async function controllSearchQuery(page = 1) {
     if (!query || query === "") return console.log("No query");
 
     // 2) Load the results
-    // const { resultsPerPage } = model.state.search;
     const resultsPerPage = model.getResultsPage(page);
     await model.loadSearchResults(query, resultsPerPage);
 
@@ -75,6 +72,19 @@ function controllBookmark() {
   bookView.update(book);
 }
 
+async function controllDefaultBooks(page = 1) {
+  // 2) Load the results
+  const resultsPerPage = model.getResultsPage(page);
+  await model.loadSearchResults("animal", resultsPerPage);
+
+  // 3) Render the results
+  const results = model.state.search.results;
+  resultsView.render(results);
+
+  // 4) Render pagination btns
+  paginationView.render(model.state.search);
+}
+
 function controllRenderBookmarks() {
   // 3) Render bookmarks
   const bookmarks = model.state.bookmarks;
@@ -82,6 +92,8 @@ function controllRenderBookmarks() {
 }
 
 (function () {
+  console.log("Hellow there! Welcome to my App :) || By Okkasha Ally");
+  controllDefaultBooks();
   bookmarkView.addHandlerRender(controllRenderBookmarks);
   bookView.addHandlerRender(controllBook);
   bookView.addHandlerPreview();
