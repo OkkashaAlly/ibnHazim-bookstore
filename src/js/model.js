@@ -81,12 +81,18 @@ export function getResultsPage(page) {
   return start;
 }
 
+function persistBookmarks() {
+  localStorage.setItem("Bookmarks", JSON.stringify(state.bookmarks));
+}
 export function addBookmark(book) {
   // Add book to the bookmarks Array
   state.bookmarks.push(book);
 
   // Mark current book as bookmarked
   if (book.id === state.book.id) state.book.bookmarked = true;
+
+  // Save to localStorage
+  persistBookmarks();
 }
 
 export function removeBookmark(id) {
@@ -96,4 +102,14 @@ export function removeBookmark(id) {
 
   // Mark current book as NOT bookmarked
   if (id === state.book.id) state.book.bookmarked = false;
+
+  // Save to localStorage
+  persistBookmarks();
 }
+
+// Load from localStorage
+(function () {
+  const storage = localStorage.getItem("Bookmarks");
+
+  if (storage) state.bookmarks = JSON.parse(storage);
+})();

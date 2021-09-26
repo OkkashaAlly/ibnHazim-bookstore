@@ -5,10 +5,10 @@ class BookmarksView extends View {
   _btnBookmarks = document.querySelector(".favorites");
   _btnsPagination = document.querySelector(".pagination");
 
-  addHandlerRender(data) {
+  addHandlerRender(handler) {
     this._btnBookmarks.addEventListener("click", () => {
-      console.log("bookmarks");
-      this.render(data);
+      console.log("Clicked");
+      handler();
       this._btnsPagination.style.display = "none";
     });
   }

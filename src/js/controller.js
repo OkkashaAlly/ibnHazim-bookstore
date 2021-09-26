@@ -31,6 +31,7 @@ async function controllBook() {
     bookView.render(book);
   } catch (error) {
     bookView.renderError();
+    console.log(error);
   }
 }
 
@@ -72,13 +73,16 @@ function controllBookmark() {
 
   // 2) Update the Ui
   bookView.update(book);
+}
 
+function controllRenderBookmarks() {
   // 3) Render bookmarks
-  // bookmarkView.render();
-  bookmarkView.addHandlerRender(model.state.bookmarks);
+  const bookmarks = model.state.bookmarks;
+  bookmarkView.render(bookmarks);
 }
 
 (function () {
+  bookmarkView.addHandlerRender(controllRenderBookmarks);
   bookView.addHandlerRender(controllBook);
   bookView.addHandlerPreview();
   bookView.addHandlerBookmark(controllBookmark);
