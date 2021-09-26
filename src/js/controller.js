@@ -3,6 +3,7 @@ import bookView from "./views/bookView";
 import searchView from "./views/searchView";
 import resultsView from "./views/resultsView";
 import paginationView from "./views/paginationView";
+import bookmarkView from "./views/bookmarkView";
 import "core-js/stable";
 import "regenerator-runtime/runtime";
 
@@ -62,9 +63,25 @@ function controllPagination(goToPage) {
   controllSearchQuery(goToPage);
 }
 
+// Bookmarking
+function controllBookmark() {
+  // 1) Add or Remove Bookmark
+  const { book } = model.state;
+  if (!book.bookmarked) model.addBookmark(book);
+  else model.removeBookmark(book.id);
+
+  // 2) Update the Ui
+  bookView.update(book);
+
+  // 3) Render bookmarks
+  // bookmarkView.render();
+  bookmarkView.addHandlerRender(model.state.bookmarks);
+}
+
 (function () {
   bookView.addHandlerRender(controllBook);
   bookView.addHandlerPreview();
+  bookView.addHandlerBookmark(controllBookmark);
   searchView.addHandlerSearch(controllSearchQuery);
   paginationView.addHandlerPagination(controllPagination);
 })();

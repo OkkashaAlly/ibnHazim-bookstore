@@ -28,12 +28,23 @@ class BookView extends View {
       window.addEventListener(ev, handler)
     );
   }
+
+  addHandlerBookmark(handler) {
+    this._parentElement.addEventListener("click", (e) => {
+      const btn = e.target.closest(".btn__bookmark");
+      if (!btn) return;
+      handler();
+    });
+  }
+
   _generateMarkup() {
     return `
       <div class="preview__book p-m">
         <div class="preview__book-top">
           <div class="preview__heading">
-            <h1 class="heading heading__1 preview__book-title">${this._data.title}</h1>
+            <h1 class="heading heading__1 preview__book-title">${
+              this._data.title
+            }</h1>
           </div>
           <svg class="btn btn__close icon">
             <use xlink:href="${icons}#icon-plus"></use>
@@ -41,7 +52,9 @@ class BookView extends View {
         </div>
         <div class="preview__book-mid m-t-m">
           <div class="preview__book-left m-r-s">
-            <img src="${this._data.imageLink}" alt="${this._data.title}" class="preview__book-img">
+            <img src="${this._data.imageLink}" alt="${
+      this._data.title
+    }" class="preview__book-img">
           </div>
           <ul class="preview__book-right">
             <li class="preview__book-info price">
@@ -57,7 +70,9 @@ class BookView extends View {
               pages: <span class="light">${this._data.pages} </span>
             </li>
             <li class="preview__book-info isbn">
-            ${this._data.isbnType}: <span class="light">${this._data.isbn}</span>
+            ${this._data.isbnType}: <span class="light">${
+      this._data.isbn
+    }</span>
             </li>
             <li class="preview__book-info rate">
               rate: <span class="light">${this._data.rate}</span>
@@ -68,8 +83,10 @@ class BookView extends View {
           
           <div class="bottom__wraper">
             <h5 class="preview__book-info prologue">Prologue:</h5>
-            <svg class="btn btn__bookmark btn__bookmark-outlined icon">
-              <use xlink:href="${icons}#icon-bookmark"></use>
+            <svg class="btn btn__bookmark icon">
+              <use xlink:href="${icons}#icon-bookmark${
+      this._data.bookmarked ? "" : "-outline"
+    }"></use>
             </svg>
           </div>
           <p class="paragraph light">
@@ -77,7 +94,9 @@ class BookView extends View {
           </p>
         </div>
         <div class="preview__book-button m-t-b m-b-m">
-          <a href="${this._data.previewLink}" target="_blank" class="btn btn__download">Download / Buy</a>
+          <a href="${
+            this._data.previewLink
+          }" target="_blank" class="btn btn__download">Download / Buy</a>
         </div>
       </div>
 

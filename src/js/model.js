@@ -9,6 +9,7 @@ export const state = {
     resultsPerPage: RES_PER_PAGE,
     page: 1,
   },
+  bookmarks: [],
 };
 
 export async function loadBook(id) {
@@ -38,6 +39,12 @@ export async function loadBook(id) {
       language: data.volumeInfo.language,
       isForSale: data.saleInfo.saleability,
     };
+
+    if (state.bookmarks.some((bookmark) => bookmark.id === id)) {
+      state.book.bookmarked = true;
+    } else {
+      state.book.bookmarked = false;
+    }
   } catch (error) {
     console.log(error);
     throw error;
@@ -72,4 +79,21 @@ export function getResultsPage(page) {
 
   state.search.page = page;
   return start;
+}
+
+export function addBookmark(book) {
+  // Add book to the bookmarks Array
+  state.bookmarks.push(book);
+
+  // Mark current book as bookmarked
+  if (book.id === state.book.id) state.book.bookmarked = true;
+}
+
+export function removeBookmark(id) {
+  // Delete book from bookmarks Array
+  const index = state.bookmarks.findIndex((el) => el.id === id);
+  state.bookmarks.splice(index, 1);
+
+  // Mark current book as NOT bookmarked
+  if (id === state.book.id) state.book.bookmarked = false;
 }
